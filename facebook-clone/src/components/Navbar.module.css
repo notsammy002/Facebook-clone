@@ -26,6 +26,10 @@
   background-color: transparent;
   outline-width: 0;
 }
+/* .link {
+  padding: 0px;
+  height: 40px;
+} */
 .navLeft img {
   height: 40px;
 }
@@ -39,12 +43,10 @@
   color: grey;
   cursor: pointer;
   padding: 0 30px;
-  height: 50px;
 }
 .navCenterSelected {
   color: #2e81f4;
   cursor: pointer;
-  height: 50px;
   padding: 0 30px;
   border-bottom: 3px solid #2e81f4;
 }
@@ -68,6 +70,18 @@
 }
 .navRightIcons {
   background-color: #e3e7eb;
+  border-radius: 50px;
+  padding: 5px;
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navRightIconsSelected {
+  background-color: #d5e7f8;
+  color: #2e81f4;
   border-radius: 50px;
   padding: 5px;
   margin-left: 5px;
