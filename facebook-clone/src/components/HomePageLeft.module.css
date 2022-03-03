@@ -1,0 +1,22 @@
+.HomePageLeft {
+  display: flex;
+  flex-direction: column;
+}
+.HomeLeftRow {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 10px;
+}
+.HomeLeftRow:hover {
+  border-radius: 10px;
+  background-color: rgb(228, 226, 226);
+}
+.HomeLeftRow h4 {
+  margin: 0px 0px 0px 20px;
+  font-weight: 600;
+}
+.HomeLeftRow > .MuiSvgIcon-root {
+  font-size: xx-large;
+  color: #2e81f4;
+}
