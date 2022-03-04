@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import styles from './login.module.css'
 import { AuthContext } from '../context/AuthContext';
 import SignupModel from '../components/SignupModel';
-import { Link } from 'react-router-dom';
+import { Footer } from '../components/Footer';
 
 
 export const Login = () => {
@@ -23,7 +23,7 @@ export const Login = () => {
        })
     }
 
-  return (
+  return (<>
     <div className={styles.logindiv}>
         <div className={styles.banner}>
             <h1>facebook</h1>
@@ -51,8 +51,8 @@ export const Login = () => {
                 </CardContent>
                 </CardActions>
             </Card>
-            <Link to='/reg'>Signup</Link>
         </div>
   </div>
-  )
+  <Footer/>
+  </>)
 }

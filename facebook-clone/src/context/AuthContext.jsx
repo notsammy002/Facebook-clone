@@ -21,7 +21,7 @@ export const AuthContextProvider = ({children}) => {
 
    const login = ({contact,password}) =>{
        const validate = async () =>{
-            const res = await fetch(`https://facebook-json-server.herokuapp.com/users/?_contact=${contact}`)
+            const res = await fetch(`https://facebook-json-server.herokuapp.com/posts/?_contact=${contact}`)
             const json = await res.json();
             console.log(json)
             password === json.password ? setLogin() : setIsLoggedIn(false)
@@ -38,7 +38,7 @@ export const AuthContextProvider = ({children}) => {
    }
 
    const signup = async (data) =>{
-       const res = await fetch('https://facebook-json-server.herokuapp.com/users',{
+       const res = await fetch('https://facebook-json-server.herokuapp.com/posts',{
            method: 'POST',
            headers:{
                'Content-type' : 'application/json'
