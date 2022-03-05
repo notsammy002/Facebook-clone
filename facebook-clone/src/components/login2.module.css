@@ -1,11 +1,21 @@
 .logindiv{
-    height: 96vh;
-    display: grid;
-    grid-template-columns: auto auto;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: whitesmoke;
 }
 
+.logindiv a{
+    font-size: .9rem;
+    color: #1378fc;
+}
+
+.logindiv p{
+    font-size: 1.2rem;
+    color: black;
+    margin: 0rem 0rem 1rem 0rem;
+}
 
 .banner{
     justify-self: right;
@@ -13,8 +23,8 @@
 }
 
 .banner h1{
-    font-size: 3.5rem;
-    margin-bottom: 0;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
     color: #1378fc;
 }
 
@@ -23,9 +33,4 @@
     margin-top: .2rem;
     font-weight: 500;
     color: black;
-}
-
-.logindiv a{
-    font-size: .9rem;
-    color: #1378fc;
 }

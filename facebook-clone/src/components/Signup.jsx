@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, CardActions, CardContent, Link} from '@mui/material';
+import { Card, CardActions, CardContent } from '@mui/material';
 import styles from './signup.module.css'
 import { SignUpForm } from './SignUpForm';
 import { Footer } from './Footer';
+import { Link } from 'react-router-dom'
 
 export const Signup = () => {
   return (
@@ -18,7 +19,7 @@ export const Signup = () => {
                         <hr className={styles.line}/>
                     </div>
                     <SignUpForm/>
-                    <Link to='/login'>Already have an account?</Link>
+                    <Link to='/login2'>Already have an account?</Link>
                 </CardContent>
             </CardActions>
         </Card>

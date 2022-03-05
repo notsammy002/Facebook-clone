@@ -20,9 +20,9 @@ export default function SignupModel() {
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
-          sx={{position:'absolute',left:50,top:100}}
+          sx={{backgroundColor:"rgba(255, 255, 255, 0.2)"}}
         >
-          <Card sx={{ maxWidth: 450, height:530, m:"auto",pt:0,pb:0 }}>
+          <Card sx={{ maxWidth: 450, height:530, m:"auto",pt:0,position:'absolute',left:"35rem",top:"10rem",pb:0,boxShadow: 8 }}>
             <CardActions>
                 <CardContent sx={{m:"auto",p:0}}>
                     <div className={styles.heading}>

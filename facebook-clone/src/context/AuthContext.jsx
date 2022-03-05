@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
    const [isLoggedIn, setIsLoggedIn] = useState();
+   const [userdata,setUserdata] = useState();
 
    useEffect(()=>{
        let json = localStorage.getItem("facebook-clone")
@@ -12,21 +13,19 @@ export const AuthContextProvider = ({children}) => {
        json.loginStatus === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false)
    },[])
 
-   const setLogin = () =>{
+   const setLogin = (userdata) =>{
         setIsLoggedIn(true)
+        setUserdata(userdata)
         const data = JSON.stringify({loginStatus:"true"});
         localStorage.setItem("facebook-clone",data)
-        console.log(localStorage)
    }
 
    const login = ({contact,password}) =>{
        const validate = async () =>{
-            const res = await fetch(`https://facebook-json-server.herokuapp.com/posts/?_contact=${contact}`)
+            const res = await fetch(`https://facebook-json-server.herokuapp.com/users/?contact=${contact}`)
             const json = await res.json();
-            console.log(json)
-            password === json.password ? setLogin() : setIsLoggedIn(false)
+            password === json[0].password ? setLogin(json[0]) : setIsLoggedIn(false)
        }
-       console.log(contact,password)
        validate();
    }
 
@@ -37,8 +36,21 @@ export const AuthContextProvider = ({children}) => {
     console.log(localStorage)
    }
 
+   const forgotpassword = async ({contact,password}) =>{
+    const res = await fetch(`https://facebook-json-server.herokuapp.com/users?contact=${contact}`,{
+        method: 'PATCH',
+        headers:{
+            'Content-type' : 'application/json'
+        },
+        body: JSON.stringify({password:password})
+    })
+    const json = await res.json();
+    console.log(json)
+   }
+
    const signup = async (data) =>{
-       const res = await fetch('https://facebook-json-server.herokuapp.com/posts',{
+       console.log('hi')
+       const res = await fetch('https://facebook-json-server.herokuapp.com/users',{
            method: 'POST',
            headers:{
                'Content-type' : 'application/json'
@@ -46,11 +58,11 @@ export const AuthContextProvider = ({children}) => {
            body: JSON.stringify(data)
        })
        const json = await res.json();
-       console.log('Success')
+       setLogin(json)
    }
 
   return (
-    <AuthContext.Provider value={{login,isLoggedIn,signup,logout}}>
+    <AuthContext.Provider value={{login,isLoggedIn,signup,logout,forgotpassword}}>
         {children}
     </AuthContext.Provider>
   )

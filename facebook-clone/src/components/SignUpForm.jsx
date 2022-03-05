@@ -84,20 +84,20 @@ export const SignUpForm = () => {
                         </select>
                         <select name="month"  value={data.name} onChange={(e)=>inputdata(e)}>
                         <option value=""></option>
-                    	    <option value="feb">January</option>
-                    	    <option value="jan">February</option>
-                    	    <option value="mar">March</option>
-                    	    <option value="apr">April</option>
-                    	    <option value="may">May</option>
-                    	    <option value="jun">June</option>
-                    	    <option value="jul">July</option>
-                    	    <option value="aug">August</option>
-                    	    <option value="sep">September</option>
-                        	<option value="oct">October</option>
-                        	<option value="nov">November</option>
-                        	<option value="dec">December</option>
+                    	    <option value="January">January</option>
+                    	    <option value="February">February</option>
+                    	    <option value="March">March</option>
+                    	    <option value="April">April</option>
+                    	    <option value="May">May</option>
+                    	    <option value="June">June</option>
+                    	    <option value="July">July</option>
+                    	    <option value="August">August</option>
+                    	    <option value="September">September</option>
+                        	<option value="October">October</option>
+                        	<option value="November">November</option>
+                        	<option value="December">December</option>
                         </select>
-                        <select name="month"  value={data.name} onChange={(e)=>inputdata(e)}>
+                        <select name="Year"  value={data.name} onChange={(e)=>inputdata(e)}>
                         <option value=""></option>
                     	    <option value="1999">1999</option>
                     	    <option value="2000">2000</option>

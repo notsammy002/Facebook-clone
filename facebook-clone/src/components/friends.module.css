@@ -1,0 +1,23 @@
+.sidebar{
+    width: 22.5rem;
+    background-color: wheat;
+    position: fixed;
+    top: 3rem;
+    left: 0rem;
+    height: 100vh;
+    text-align: left;
+}
+
+.sidebar div{
+    margin: 1rem 1rem;
+}
+
+.sidebar div > a{
+    font-size: 1.3rem;
+}
+
+.content{
+    position: relative;
+    top: 3rem;
+    left: 6.5rem;
+}

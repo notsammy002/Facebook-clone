@@ -22,7 +22,7 @@ export const Footer = () => {
             <hr/>
             <br/>
             <Link to='/reg'>Sign Up</Link>
-            <Link to='/login'>Log In</Link>
+            <Link to='/login2'>Log In</Link>
             <Link to='#'>Messenger</Link>
             <Link to='#'>Facebook Lite</Link>
             <Link to='#'>Watch</Link>
@@ -46,7 +46,7 @@ export const Footer = () => {
             <Link to='#'>Careers</Link>
             <Link to='#'>Privacy</Link>
             <Link to='#'>Cookies</Link>
-            <Link to='#'>AdChoices<img className={styles.adIcon} src={adchoice}/></Link>
+            <Link to='#'>AdChoices<img className={styles.adIcon} src={adchoice} alt=''/></Link>
             <Link to='#'>Terms</Link><br/>
             <Link to='#'>Help</Link>
 

@@ -1,18 +1,13 @@
-import React, { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
+import React from 'react'
+import {Link} from 'react-router-dom'
 import styles from '../components/friends.module.css'
-import { Link, Outlet } from 'react-router-dom';
 
-export const Friends = () => {
-  const {logout} = useContext(AuthContext);
+export const Birthdays = () => {
   return (<>
     <div style={{textAlign:"center",width:"100%",margin:"1rem",backgroundColor:"wheat",position:"fixed",top:"0rem"}}>I Am a Tempbar</div>
     <div className={styles.sidebar}>
       <div>
         <h1>Friends</h1>
-      </div>
-      <div>
-      <Link to='/friends'>Home</Link>
       </div>
       <div>
         <Link to='/friends/requests'>Friend requests</Link>
@@ -28,8 +23,8 @@ export const Friends = () => {
       </div>
     </div>
     <div className={styles.content}>
+      {/* birthdatycard */}
     </div>
-    
-    <button onClick={()=>logout()}>Logout</button>
-  </>)
+  </>
+  )
 }
