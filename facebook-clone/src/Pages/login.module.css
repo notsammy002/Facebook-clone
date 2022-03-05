@@ -1,0 +1,31 @@
+.logindiv{
+    height: 96vh;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+
+.banner{
+    justify-self: right;
+    text-align: left;
+}
+
+.banner h1{
+    font-size: 3.5rem;
+    margin-bottom: 0;
+    color: #1378fc;
+}
+
+.banner p{
+    font-size: 1.7rem;
+    margin-top: .2rem;
+    font-weight: 500;
+    color: black;
+}
+
+.logindiv a{
+    font-size: .9rem;
+    color: #1378fc;
+}
