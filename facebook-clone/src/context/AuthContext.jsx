@@ -22,8 +22,9 @@ export const AuthContextProvider = ({children}) => {
 
    const login = ({contact,password}) =>{
        const validate = async () =>{
-            const res = await fetch(`https://facebook-json-server.herokuapp.com/users/?contact=${contact}`)
+            const res = await fetch(`https://facebook-json-server.herokuapp.com/users?contact=${contact}`)
             const json = await res.json();
+            console.log(json)
             password === json[0].password ? setLogin(json[0]) : setIsLoggedIn(false)
        }
        validate();
@@ -62,7 +63,7 @@ export const AuthContextProvider = ({children}) => {
    }
 
   return (
-    <AuthContext.Provider value={{login,isLoggedIn,signup,logout,forgotpassword}}>
+    <AuthContext.Provider value={{login,isLoggedIn,signup,logout,forgotpassword,userdata}}>
         {children}
     </AuthContext.Provider>
   )
