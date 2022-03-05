@@ -13,7 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Avatar from "@mui/material/Avatar";
 import { Tooltip, Popover, Typography } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
-
+import { Messenger } from "./Messenger";
 export const Navbar = () => {
   let location = useLocation();
   const [anchorEl, setAnchorEl] = React.useState({
@@ -169,7 +169,9 @@ export const Navbar = () => {
             horizontal: "left",
           }}
         >
-          <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+          <Typography sx={{ p: 2 }}>
+            <Messenger onClose={handleClose} />
+          </Typography>
         </Popover>
         <div
           id="notification"

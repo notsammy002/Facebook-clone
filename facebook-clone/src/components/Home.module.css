@@ -1,4 +1,12 @@
 .Home {
   display: flex;
   justify-content: space-between;
+  background-color: #f0f2f5;
+  min-height: 90vh;
+}
+.Box {
+  position: fixed;
+  z-index: 100;
+  bottom: 0%;
+  right: 100px;
 }

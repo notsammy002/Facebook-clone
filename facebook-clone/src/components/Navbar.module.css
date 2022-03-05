@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
   padding: 0px 20px;
+  /* height: 10vh; */
   justify-content: space-between;
   position: sticky;
   background-color: white;

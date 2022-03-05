@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "chat": [
+    {
+      "id": 1,
+      "person_1_id": "p1",
+      "person_2_id": "p2",
+      "person_1_name": "Muskan",
+      "person_2_name": "guru",
+      "chatbox": [
+        { "id": "c1", "person_1_id": "p1", "message": "hii" },
+        { "id": "c2", "person_2_id": "p1", "message": "bye" }
+      ]
+    },
+    {
+      "id": 2,
+      "person_1_id": "p1",
+      "person_2_id": "p3",
+      "person_1_name": "Muskan",
+      "person_2_name": "rinu",
+      "chatbox": [
+        { "id": "c1", "person_1_id": "p1", "message": "hii" },
+        { "id": "c2", "person_2_id": "p3", "message": "bye" }
+      ]
+    }
+  ]
+}
