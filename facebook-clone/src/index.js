@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StyledEngineProvider } from '@mui/material';
+import { ContextProvider } from './components/PostContext';
 
 ReactDOM.render(
   <React.StrictMode>
+    <ContextProvider>
     <StyledEngineProvider injectFirst>
     <App />
     </StyledEngineProvider>
+    </ContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

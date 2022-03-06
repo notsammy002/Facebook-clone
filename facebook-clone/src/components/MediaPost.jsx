@@ -1,3 +1,4 @@
+
 import React, { useEffect, useContext, useState } from 'react'
 import { Avatar, Button, Card, CardContent, CardHeader, CardMedia, Collapse, IconButton, Typography } from '@mui/material';
 import { red } from '@mui/material/colors';
@@ -5,6 +6,7 @@ import styles from "./style.module.css"
 import { v4 } from 'uuid';
 import ReactPlayer from 'react-player';
 
+import ShareIcon from '@mui/icons-material/Share';
 import axios from "axios";
 import { Box } from '@mui/system';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -12,11 +14,6 @@ import BasicMenu from './DeletePost';
 import { Comment, ExpandMore } from '@mui/icons-material';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import { Context } from './PostContext';
-import ShareIcon from '@mui/icons-material/Share';
-
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
@@ -28,42 +25,21 @@ const CustomWidthTooltip = styled(({ className, ...props }) => (
     }
 });
 
-
-
-const HomePost = () => {
-
+const MediaPost = () => {
     const { user, setUser } = useContext(Context);
-
     const [expanded, setExpanded] = React.useState(false);
 
     const [comment, setComment] = useState("")
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
-
-
-
-    useEffect(() => {
-        fetchUsers();
-    }, []);
-
-    const fetchUsers = () => {
-        axios
-            .get('http://localhost:3000/posts')
-            .then((res) => {
-                console.log(res);
-                setUser(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
 
     const onChangeHandle = (e) => {
         setComment(e.currentTarget.value);
 
     }
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -87,49 +63,16 @@ const HomePost = () => {
         setComment("");
     };
 
-
-    // const PostUsers = () => {
-    //     axios
-    //         .post('https://jsonservermock.herokuapp.com/posts', {
-    //             ...user,
-    //             comment,
-    //         })
-    //         .then((res) => {
-    //             console.log(res);
-    //             setUser(res.data);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // };
-
-    const longText = "👍 😂 😍 🥰 😡";
-
-
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        console.log(event.id, event)
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
-    const handleDelete = (itemToDelete) => {
-        console.log(itemToDelete.id)
-        const userList = user.filter((e) => e.id !== itemToDelete.id);
-        setUser(userList);
-    };
+    const longText = " 👍 😂 😍 🥰 😡";
 
 
     return (
         <div>
             <Box>
+
                 {user.map((user) => (
 
-                    <Card sx={{ maxWidth: 500, maxHeight: "fit-content", marginBlock: 10, }} >
+                    <Card sx={{ maxWidth: 635, maxHeight: 2500, marginBlock: 10, marginLeft: 30 }} >
                         <CardHeader sx={{ textAlign: "left" }}
                             avatar={
                                 <Avatar sx={{ bgcolor: red[500] }}
@@ -141,28 +84,7 @@ const HomePost = () => {
                                 </Avatar>
                             }
                             action={
-                                <div>
-                                    <Button
-                                        id="basic-button"
-                                        aria-controls={open ? 'basic-menu' : undefined}
-                                        aria-haspopup="true"
-                                        aria-expanded={open ? 'true' : undefined}
-                                        onClick={handleClick}
-                                    >
-                                        <MoreVertIcon />
-                                    </Button>
-                                    <Menu
-                                        id="basic-menu"
-                                        anchorEl={anchorEl}
-                                        open={open}
-                                        onClose={handleClose}
-                                        MenuListProps={{
-                                            'aria-labelledby': 'basic-button',
-                                        }}
-                                    >
-                                        <MenuItem onClick={handleDelete}>Delete</MenuItem>
-                                    </Menu>
-                                </div>
+                                <BasicMenu key={user.id} />
                             }
                             title={user.username}
                             subheader="September 14, 2016"
@@ -173,17 +95,16 @@ const HomePost = () => {
 
                         <CardContent sx={{ textAlign: "left" }}>
                             <Typography variant="body2" color="text.secondary">
-                                {user.post_disc}
+                                {user.video_disc}
                             </Typography>
                         </CardContent>
-                        <CardMedia
-                            component="img"
-                            height="fit-content"
-                            image={user.post}
-                            alt={user.first_name}
-                        />
+                        <ReactPlayer
+                            width='100%'
+                            height='100%'
+                            url={user.video} />
 
-                        <Box sx={{ textAlign: "left", margin: 1, display: "flex", gap: 1 }}>
+
+                        <Box sx={{ textAlign: "left", margin: 1, display: "flex", gap: 1, bgcolor: 'white' }}>
                             <ThumbUpIcon />{user.likes}
 
                         </Box>
@@ -197,7 +118,6 @@ const HomePost = () => {
                             borderColor: 'grey',
                             padding: 0, grap: 4
                         }}>
-
                             <CustomWidthTooltip title={longText}>
                                 <IconButton sx={{ marginLeft: 6, marginRight: 12, fontSize: 5 }}>
                                     <ThumbUpIcon style={{ fontSize: 25 }} /><p style={{ marginLeft: "10px", fontSize: "12px" }}>Like</p>
@@ -205,12 +125,12 @@ const HomePost = () => {
                             </CustomWidthTooltip>
 
 
-
                             <IconButton expand={expanded} onClick={handleExpandClick}>
-                                <ChatBubbleOutlineOutlinedIcon style={{ fontSize: 25 }} /><p style={{ marginLeft: "10px", fontSize: "13px" }}>Comment</p>
+                                <ChatBubbleOutlineOutlinedIcon style={{ fontSize: 25}} />
+                                <p style={{ marginLeft: "10px", fontSize: "13px" }}>Comment</p>
                             </IconButton>
 
-                            <IconButton sx={{ marginLeft: 6, marginRight: 15, fontSize: 5 }}>
+                            <IconButton sx={{ marginLeft: 16, marginRight: 10, fontSize: 5 }}>
                                     <ShareIcon style={{ fontSize: 25 }} /><p style={{ marginLeft: "10px", fontSize: "12px" }}>Like</p>
                                 </IconButton>
                         </Box>
@@ -256,4 +176,7 @@ const HomePost = () => {
     )
 }
 
-export default HomePost
+export default MediaPost
+
+
+
