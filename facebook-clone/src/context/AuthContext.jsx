@@ -1,78 +1,100 @@
-import React,{createContext} from 'react'
-import { useState,useEffect } from 'react';
-import { v4 } from 'uuid'
+import React, { createContext } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export const AuthContext = createContext();
 
-export const AuthContextProvider = ({children}) => {
-   const [isLoggedIn, setIsLoggedIn] = useState();
-   const [userdata,setUserdata] = useState({});
-
-   useEffect(()=>{
-       let json = localStorage.getItem("facebook-clone")
-       json = JSON.parse(json);
-        
-       json.loginStatus === "true" ? setIsLoggedIn(true)  : setIsLoggedIn(false)
-       
-   },[])
-
-   useEffect(()=>{
-    let json = localStorage.getItem("facebook-clone")
+export const AuthContextProvider = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    let json = localStorage.getItem("facebook-clone");
     json = JSON.parse(json);
-    json.loginStatus === "true" ? setUserdata(json.userdata) : setIsLoggedIn(false)
-   },[isLoggedIn])
+    return json.loginStatus === "true" ? true : false;
+  });
+  const [userdata, setUserdata] = useState({});
+  const location = useLocation();
+  console.log(location);
 
-   const setLogin = (userdata) =>{
-        setIsLoggedIn(true)
-        const data = JSON.stringify({loginStatus:"true",userdata});
-        localStorage.setItem("facebook-clone",data)
-        window.location.reload();
-   }
+  useEffect(() => {
+    let json = localStorage.getItem("facebook-clone");
+    json = JSON.parse(json);
+    json.loginStatus === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false);
+    let json1 = localStorage.getItem("usedata");
+    json1 = JSON.parse(json1);
+    setUserdata(json1);
+  }, []);
+  const setLogin = (userdata) => {
+    setIsLoggedIn(true);
+    setUserdata(userdata);
+    const datauser = JSON.stringify(userdata);
+    localStorage.setItem("usedata", datauser);
+    const data = JSON.stringify({ loginStatus: "true" });
+    localStorage.setItem("facebook-clone", data);
+  };
 
-   const login = ({contact,password}) =>{
-       const validate = async () =>{
-            const res = await fetch(`https://facebook-json-server.herokuapp.com/users?contact=${contact}`)
-            const json = await res.json();
-            password === json[0].password ? setLogin(json[0]) : setIsLoggedIn(false)
-       }
-       validate();
-   }
+  const login = ({ contact, password }) => {
+    const validate = async () => {
+      const res = await fetch(
+        `https://facebook-json-server.herokuapp.com/users/?contact=${contact}`
+      );
+      const json = await res.json();
+      password === json[0].password ? setLogin(json[0]) : setIsLoggedIn(false);
+    };
+    const data = JSON.stringify({ loginStatus: "true" });
+    localStorage.setItem("facebook-clone", data);
+    validate();
+  };
 
-   const logout = ()=>{
-    setIsLoggedIn(false)
-    const data = JSON.stringify({loginStatus:"false"});
-    localStorage.setItem("facebook-clone",data)
-    console.log(localStorage)
-   }
+  const logout = () => {
+    setIsLoggedIn(false);
+    const data = JSON.stringify({ loginStatus: "false" });
+    localStorage.setItem("facebook-clone", data);
+    console.log(localStorage);
+  };
 
-   const forgotpassword = async ({contact,password}) =>{
-    const res = await fetch(`https://facebook-json-server.herokuapp.com/users?contact=${contact}`,{
-        method: 'PATCH',
-        headers:{
-            'Content-type' : 'application/json'
+  const forgotpassword = async ({ contact, password }) => {
+    const res = await fetch(
+      `https://facebook-json-server.herokuapp.com/users?contact=${contact}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
         },
-        body: JSON.stringify({password:password})
-    })
+        body: JSON.stringify({ password: password }),
+      }
+    );
     const json = await res.json();
-    console.log(json)
-   }
+    console.log(json);
+  };
 
-   const signup = async (data) =>{
-       data.uid = v4()
-       const res = await fetch('https://facebook-json-server.herokuapp.com/users',{
-           method: 'POST',
-           headers:{
-               'Content-type' : 'application/json'
-           },
-           body: JSON.stringify(data)
-       })
-       const json = await res.json();
-       setLogin(json)
-   }
+  const signup = async (data) => {
+    console.log("hi");
+    const res = await fetch(
+      "https://facebook-json-server.herokuapp.com/users",
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    const json = await res.json();
+    setLogin(json);
+  };
 
   return (
-    <AuthContext.Provider value={{login,isLoggedIn,signup,logout,forgotpassword,userdata}}>
-        {children}
+    <AuthContext.Provider
+      value={{
+        location,
+        userdata,
+        login,
+        isLoggedIn,
+        signup,
+        logout,
+        forgotpassword,
+      }}
+    >
+      {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
