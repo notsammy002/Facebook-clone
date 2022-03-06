@@ -10,7 +10,9 @@
             "Year": "2011",
             "gender": "male",
             "uid": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22",
-            "id": 1
+            "id": 1,
+            "profile":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_v1fpVM-6cswnF5C1ECHYsJvX94yE7Gk8gA&usqp=CAU"
+            
         },
         {
             "firstname": "Rajesh",
@@ -22,7 +24,8 @@
             "Year": "2010",
             "gender": "male",
             "uid": "10434590-1ee1-40ff-a0b0-4351d61f7d6f",
-            "id": 2
+            "id": 2,
+            "profile":"https://funkylife.in/wp-content/uploads/2021/06/whatsapp-dp-pic-24-scaled.jpg"
         },
         {
             "firstname": "Neha",
@@ -34,7 +37,8 @@
             "month": "July",
             "gender": "female",
             "uid": "e2fd57e2-5724-4c66-a9c1-974477f36a32",
-            "id": 3
+            "id": 3,
+            "profile":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvSs9rFFe6OG4taNv7EVHus0N0SJWcGLj96g&usqp=CAU"
         }
     ],
     "friends": [
