@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import { BirthdayCard } from '../components/BirthdayCard';
 import styles from '../components/friends.module.css'
+import { AuthContext } from '../context/AuthContext';
+
 
 export const Birthdays = () => {
+
+  const {userdata} = useContext(AuthContext);
+  const [friends,setFriends] = useState();
+  const [haveFriends,setHaveFriends] = useState(false);
+  
+  useEffect(()=>{
+    const getFriends = async (uid) =>{
+      console.log(uid)
+      const res = await fetch(`https://facebook-json-server.herokuapp.com/friends/?uid=${uid}`)
+      const json = await res.json();
+      setFriends(json[0].friendslist)
+      setHaveFriends(true)
+    }
+    
+    userdata.uid ? getFriends(userdata.uid) : console.log("no uid")
+  },[userdata])
+
   return (<>
     <div className={styles.sidebar}>
       <section>
@@ -43,6 +63,7 @@ export const Birthdays = () => {
       </div>
     </div>
     <div className={styles.content}>
+      {haveFriends ? friends.map((user)=><BirthdayCard key={user.uid} user={user}/>) : null}
     </div>
   </>
   )

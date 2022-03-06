@@ -1,0 +1,32 @@
+.profilepic{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 4rem;
+}
+
+.card:hover{
+    border-radius: .4rem;
+    background-color: rgba(245, 245, 245, 0.644);
+}
+
+.card{
+    display: flex;
+    margin: 2rem auto;
+    align-items: center;
+}
+
+.card p{
+    font-size: 1.2rem;
+    margin-left: .7rem;
+    color: black;
+}
+
+.requestbutton{
+    width: 5rem;
+    height: 2rem;
+    margin: .2rem;
+    border: none;
+    border-radius: .2rem;
+    font-size: .8rem;
+    font-weight: 550;
+}

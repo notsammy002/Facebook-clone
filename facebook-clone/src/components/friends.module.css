@@ -172,10 +172,22 @@ display:inline-block;
     margin-bottom: 0rem;
 }
 
+.content{
+    position: relative;
+    left: 22.5rem;
+}
+
 .caption{
     margin-left: 1rem;
     margin-top: .4rem;
     color: rgba(0, 0, 0, 0.801);
+}
+
+
+.requestdiv , .suggestdiv{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 1rem;
 }
     /* .csssprite2Uq6nzMReuh{
             background:url('../css-sprite-combined.3.png') -0px -45px;

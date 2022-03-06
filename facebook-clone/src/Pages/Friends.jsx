@@ -1,10 +1,32 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import styles from '../components/friends.module.css'
 import { Link, Outlet } from 'react-router-dom';
+import { useState } from 'react';
+import { Cards } from '../components/Cards';
 
 export const Friends = () => {
-  const {logout} = useContext(AuthContext);
+
+  const {logout,userdata} = useContext(AuthContext);
+  const [request,setRequest] = useState();
+  const [suggest,setSuggest] = useState();
+  const [haveData,setHaveData] = useState(false);
+  
+  useEffect(()=>{
+    const getFriends = async (uid) =>{
+      const res = await fetch(`https://facebook-json-server.herokuapp.com/friends/?uid=${uid}`)
+      const json = await res.json();
+      setRequest(json[0].requests)
+      setSuggest(json[0].suggestion)
+      setHaveData(true)
+      console.log(json)
+    }
+    
+    userdata.uid ? getFriends(userdata.uid) : console.log("no uid")
+  },[userdata])
+  
+
+
   return (<>
     <div className={styles.sidebar}>
       <section>
@@ -45,7 +67,14 @@ export const Friends = () => {
       </div>
     </div>
     <div className={styles.content}>
-    </div>
+      <div className={styles.requestdiv}>
+      { haveData ? request.map((user) => <Cards key={user.id} user={user} type='friend'/>): null}
+      </div>
+      <hr />
+      <div className={styles.suggestdiv}>
+      { haveData ? suggest.map((user) => <Cards key={user.id} user={user}/>): null}
+      </div>
+    </div>  
     
     <button onClick={()=>logout()}>Logout</button>
   </>)

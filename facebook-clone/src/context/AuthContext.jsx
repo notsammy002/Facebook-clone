@@ -1,30 +1,38 @@
 import React,{createContext} from 'react'
 import { useState,useEffect } from 'react';
+import { v4 } from 'uuid'
 
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
    const [isLoggedIn, setIsLoggedIn] = useState();
-   const [userdata,setUserdata] = useState();
+   const [userdata,setUserdata] = useState({});
 
    useEffect(()=>{
        let json = localStorage.getItem("facebook-clone")
        json = JSON.parse(json);
-       json.loginStatus === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false)
+        
+       json.loginStatus === "true" ? setIsLoggedIn(true)  : setIsLoggedIn(false)
+       
    },[])
+
+   useEffect(()=>{
+    let json = localStorage.getItem("facebook-clone")
+    json = JSON.parse(json);
+    json.loginStatus === "true" ? setUserdata(json.userdata) : setIsLoggedIn(false)
+   },[isLoggedIn])
 
    const setLogin = (userdata) =>{
         setIsLoggedIn(true)
-        setUserdata(userdata)
-        const data = JSON.stringify({loginStatus:"true"});
+        const data = JSON.stringify({loginStatus:"true",userdata});
         localStorage.setItem("facebook-clone",data)
+        window.location.reload();
    }
 
    const login = ({contact,password}) =>{
        const validate = async () =>{
             const res = await fetch(`https://facebook-json-server.herokuapp.com/users?contact=${contact}`)
             const json = await res.json();
-            console.log(json)
             password === json[0].password ? setLogin(json[0]) : setIsLoggedIn(false)
        }
        validate();
@@ -50,7 +58,7 @@ export const AuthContextProvider = ({children}) => {
    }
 
    const signup = async (data) =>{
-       console.log('hi')
+       data.uid = v4()
        const res = await fetch('https://facebook-json-server.herokuapp.com/users',{
            method: 'POST',
            headers:{
