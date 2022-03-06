@@ -30,19 +30,27 @@ export const HomePageLeft = () => {
         title={userdata.firstname + " " + userdata.lastname}
         src=""
       />
-      <HomeLeftRow title="Friends" Icon={PeopleAltOutlinedIcon} />
-      <HomeLeftRow title="Marketplace" Icon={StorefrontOutlinedIcon} />
+      <Link className={styles.Links} to="/friends">
+        <HomeLeftRow title="Friends" Icon={PeopleAltOutlinedIcon} />
+      </Link>
+      <Link className={styles.Links} to="marketplace">
+        <HomeLeftRow title="Marketplace" Icon={StorefrontOutlinedIcon} />
+      </Link>
       <HomeLeftRow title="Ads" Icon={BarChartIcon} />
       <HomeLeftRow title="Blood Donations" Icon={InvertColorsIcon} />
       <HomeLeftRow title="Messanger" Icon={MessageIcon} />
-      <HomeLeftRow title="Groups" Icon={SupervisedUserCircleIcon} />
+      <Link className={styles.Links} to="groups">
+        <HomeLeftRow title="Groups" Icon={SupervisedUserCircleIcon} />
+      </Link>
 
       {!see ? (
         <>
           <HomeLeftRow title="Events" Icon={CalendarTodayIcon} />
           <HomeLeftRow title="Favourites" Icon={StarIcon} />
           <HomeLeftRow title="Pages" Icon={EmojiFlagsIcon} />
-          <HomeLeftRow title="Watch" Icon={SubscriptionsOutlinedIcon} />
+          <Link className={styles.Links} to="watch">
+            <HomeLeftRow title="Watch" Icon={SubscriptionsOutlinedIcon} />
+          </Link>
           <HomeLeftRow title="Memories" Icon={AccessTimeIcon} />
           <HomeLeftRow title="Events" Icon={CalendarTodayIcon} />
           <HomeLeftRow title="Favourites" Icon={StarIcon} />
