@@ -39,6 +39,32 @@
             "uid": "e2fd57e2-5724-4c66-a9c1-974477f36a32",
             "id": 3,
             "profile":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvSs9rFFe6OG4taNv7EVHus0N0SJWcGLj96g&usqp=CAU"
+        },
+        {
+          "firstname": "Virat",
+          "lastname": "Singh",
+          "contact": "9756632158",
+          "password": "lsociem",
+          "day": "13",
+          "month": "April",
+          "Year": "2002",
+          "gender": "male",
+          "uid": "9ecd8ce0-51b7-4be0-9f93-ea89f63ba5c1",
+          "id": 4,
+          "profile":"https://cdn.statusqueen.com/dpimages/thumbnail/dp_images_8-1279.jpg"
+        },
+        {
+          "firstname": "Rahul",
+          "lastname": "Mahajan",
+          "contact": "9852321452",
+          "password": "sddihwe,nal",
+          "day": "8",
+          "month": "June",
+          "Year": "2000",
+          "gender": "male",
+          "uid": "654fa3b2-c111-4542-b469-3ba9faa47cc3",
+          "id": 5,
+          "profile":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0Bi8fG8-OqnfiMlVdc0UWB5DdUtX4C5YGA&usqp=CAU"
         }
     ],
     "friends": [
@@ -48,6 +74,10 @@
                 {
                     "id": 1,
                     "uid": "e2fd57e2-5724-4c66-a9c1-974477f36a32"
+                },
+                {
+                    "id":2,
+                    "uid": "9ecd8ce0-51b7-4be0-9f93-ea89f63ba5c1"
                 }
             ],
             "friendslist":[
@@ -55,6 +85,12 @@
                     "id": 1,
                     "uid": "10434590-1ee1-40ff-a0b0-4351d61f7d6f"
                 }
+            ],
+            "suggestion":[
+               {
+                   "id":1,
+                   "uid": "654fa3b2-c111-4542-b469-3ba9faa47cc3"
+               }
             ]
         },
         {
@@ -65,13 +101,17 @@
                     "uid": "e2fd57e2-5724-4c66-a9c1-974477f36a32"
                 }
             ],
-            "friends-list":[
+            "friendslist":[
                 {
                     "id": 1,
                     "uid": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22"
                 }
             ],
             "suggestion":[
+                {
+                    "id":2,
+                    "uid": "9ecd8ce0-51b7-4be0-9f93-ea89f63ba5c1"
+                }
             ]
         }
     ],
