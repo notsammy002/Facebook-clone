@@ -9,7 +9,7 @@
             "month": "April",
             "Year": "2011",
             "gender": "male",
-            "udi": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22",
+            "uid": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22",
             "id": 1
         },
         {
@@ -39,7 +39,7 @@
     ],
     "friends": [
         {
-            "udi": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22",
+            "uid": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22",
             "requests": [
                 {
                     "id": 1,
@@ -50,6 +50,21 @@
                 {
                     "id": 1,
                     "uid": "10434590-1ee1-40ff-a0b0-4351d61f7d6f"
+                }
+            ]
+        },
+        {
+            "uid": "10434590-1ee1-40ff-a0b0-4351d61f7d6f",
+            "requests": [
+                {
+                    "id": 1,
+                    "uid": "e2fd57e2-5724-4c66-a9c1-974477f36a32"
+                }
+            ],
+            "friends-list":[
+                {
+                    "id": 1,
+                    "uid": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22"
                 }
             ]
         }
