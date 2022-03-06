@@ -1,0 +1,15 @@
+.profilepic{
+    width: 4rem;
+    border-radius: 4rem;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.details h3{
+    margin: 1.5%;
+}

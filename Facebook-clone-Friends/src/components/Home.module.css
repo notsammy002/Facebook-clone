@@ -1,0 +1,22 @@
+.Home {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+.Box {
+  position: fixed;
+  bottom: 0;
+  right: 100px;
+}
+@media screen and (max-width: 1050px) {
+  .Home {
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 900px) {
+  .Home {
+    justify-content: center;
+  }
+}

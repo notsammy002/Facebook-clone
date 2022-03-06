@@ -1,0 +1,54 @@
+.HomePageLeft {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 15px;
+  overflow-y: scroll;
+  width: 20%;
+  height: 100vh;
+}
+.HomeLeftRow {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 10px;
+}
+.HomeLeftRow:hover {
+  border-radius: 10px;
+  background-color: rgb(228, 226, 226);
+}
+.HomeLeftRow h4 {
+  margin: 0px 0px 0px 20px;
+  font-weight: 600;
+}
+.Links {
+  text-decoration: none;
+  color: black;
+}
+.hrLine {
+  margin: 8px;
+  border-bottom: 1px solid #ced0d4;
+}
+.bottom {
+  margin-top: 8vh;
+  padding: 16px;
+}
+.bottom span {
+  color: #65676b;
+  font-weight: 400;
+  font-size: 12px;
+}
+.bottom .Link {
+  color: #65676b;
+  font-weight: 400;
+  font-size: 12px;
+  text-decoration: none;
+}
+.bottom .Link:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 1050px) {
+  .HomePageLeft {
+    display: none;
+  }
+}

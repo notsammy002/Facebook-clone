@@ -1,0 +1,42 @@
+.HomePageRight {
+  width: 20%;
+}
+.SponsorHeader {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  text-align: left;
+  color: #65676b;
+  padding-right: 15px;
+}
+.SponsorList {
+  padding: 8px 0px;
+}
+.SponsorListItem {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  padding: 5px;
+}
+.SponsorListItem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}
+.SponsorListItem div {
+  width: 40%;
+}
+.SponsorListItem img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  min-height: 1px;
+}
+.SponsorListItem p {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: #050505;
+}
+@media screen and (max-width: 900px) {
+  .HomePageRight {
+    display: none;
+  }
+}
