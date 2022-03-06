@@ -1,5 +1,60 @@
 {
-    "users":[
-        {"id":1, "firstname":"Rahul", "lastname":"Roy", "contact":"123456789", "password":"1234"}
-    ]
-  } 
+    "users": [
+        {
+            "firstname": "Rahul",
+            "lastname": "Sharma",
+            "contact": "8171518070",
+            "password": "12345",
+            "day": "6",
+            "month": "April",
+            "Year": "2011",
+            "gender": "male",
+            "udi": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22",
+            "id": 1
+        },
+        {
+            "firstname": "Rajesh",
+            "lastname": "Kumar",
+            "contact": "8647523195",
+            "password": "Slide",
+            "day": "16",
+            "month": "August",
+            "Year": "2010",
+            "gender": "male",
+            "uid": "10434590-1ee1-40ff-a0b0-4351d61f7d6f",
+            "id": 2
+        },
+        {
+            "firstname": "Neha",
+            "lastname": "Yadav",
+            "contact": "8657123459",
+            "password": "96854213",
+            "day": "6",
+            "Year": "2003",
+            "month": "July",
+            "gender": "female",
+            "uid": "e2fd57e2-5724-4c66-a9c1-974477f36a32",
+            "id": 3
+        }
+    ],
+    "friends": [
+        {
+            "udi": "8e4c75d3-8f52-4b45-a4d2-a294d9e67a22",
+            "requests": [
+                {
+                    "id": 1,
+                    "uid": "e2fd57e2-5724-4c66-a9c1-974477f36a32"
+                }
+            ],
+            "friends-list":[
+                {
+                    "id": 1,
+                    "uid": "10434590-1ee1-40ff-a0b0-4351d61f7d6f"
+                }
+            ]
+        }
+    ],
+    "photos":[],
+    "posts": [],
+    "comments": []
+}
