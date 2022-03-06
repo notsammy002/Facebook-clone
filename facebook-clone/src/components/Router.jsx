@@ -23,7 +23,7 @@ export const Router = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        isLoggedIn ? navigate('/friends'):navigate('/login')
+        isLoggedIn ? navigate('/'):navigate('/login')
     },[isLoggedIn])
 
   return (

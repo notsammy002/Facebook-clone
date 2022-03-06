@@ -75,7 +75,5 @@ export const Friends = () => {
       { haveData ? suggest.map((user) => <Cards key={user.id} user={user}/>): null}
       </div>
     </div>  
-    
-    <button onClick={()=>logout()}>Logout</button>
   </>)
 }

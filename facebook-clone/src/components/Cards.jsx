@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import styles from './cards.module.css'
 import { CardActionArea } from '@mui/material';
+import { AuthContext } from '../context/AuthContext';
 
 export const Cards = ({user,type}) => {
     const [userDetails,setUserDetails] = useState();
+    const {userdata} = useContext(AuthContext);
 
     useEffect(()=>{
         const getdetail = async (uid) =>{
@@ -23,7 +25,7 @@ export const Cards = ({user,type}) => {
       const handledelete = () =>{
         
         userDetail = false;  //temp delete function
-        setUserDetails();
+        setUserDetails();        
       }
 
 
