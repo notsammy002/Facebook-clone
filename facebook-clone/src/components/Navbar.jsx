@@ -136,7 +136,7 @@ export const Navbar = () => {
       <div className={styles.navRight}>
         <div className={styles.navRightAvtar}>
           <Avatar sx={{ width: 24, height: 24 }} />
-          <h4>{userdata.firstname}</h4>
+          <h4>{userdata && userdata.firstname}</h4>
         </div>
         <div
           id="menu"

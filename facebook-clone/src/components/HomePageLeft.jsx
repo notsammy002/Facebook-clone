@@ -27,7 +27,7 @@ export const HomePageLeft = () => {
   return (
     <div className={styles.HomePageLeft}>
       <HomeLeftRow
-        title={userdata.firstname + " " + userdata.lastname}
+        title={userdata ? userdata.firstname + " " + userdata.lastname : ""}
         src=""
       />
       <Link className={styles.Links} to="/friends">
