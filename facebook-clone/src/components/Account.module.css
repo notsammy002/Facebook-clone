@@ -1,0 +1,26 @@
+.Account {
+  /* width: 20%; */
+}
+.AList {
+  width: 350px;
+}
+.footer {
+  width: 350px;
+}
+.footer div {
+  margin: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.hrLine {
+  margin: 8px;
+  border-bottom: 1px solid #ced0d4;
+}
+.Icon {
+  border-radius: 20px;
+  padding: 8px;
+  background-color: #e4e6eb;
+  display: flex;
+  vertical-align: center;
+  justify-content: center;
+}

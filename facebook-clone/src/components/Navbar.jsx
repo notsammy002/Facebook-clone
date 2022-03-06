@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Navbar.module.css";
+import style from "./Home.module.css";
 import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@material-ui/icons/Home";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
@@ -14,8 +15,18 @@ import Avatar from "@mui/material/Avatar";
 import { Tooltip, Popover, Typography } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import { Messenger } from "./Messenger";
+import { AuthContext } from "../context/AuthContext";
+import { Notification } from "./Notification";
+import Box from "@material-ui/core/Box";
+import Paper from "@material-ui/core/Paper";
+import { ChatBox } from "../components/ChatBox";
+import { ChatContext } from "../context/ChatContext";
+import { Account } from "./Account";
+
 export const Navbar = () => {
   let location = useLocation();
+  const { userdata } = useContext(AuthContext);
+  const { chatwindow } = useContext(ChatContext);
   const [anchorEl, setAnchorEl] = React.useState({
     menu: false,
     messanger: false,
@@ -125,7 +136,7 @@ export const Navbar = () => {
       <div className={styles.navRight}>
         <div className={styles.navRightAvtar}>
           <Avatar sx={{ width: 24, height: 24 }} />
-          <h4>Muskan</h4>
+          <h4>{userdata.firstname}</h4>
         </div>
         <div
           id="menu"
@@ -169,7 +180,10 @@ export const Navbar = () => {
             horizontal: "left",
           }}
         >
-          <Typography sx={{ p: 2 }}>
+          <Typography
+            sx={{ p: 2 }}
+            style={{ maxHeight: 500, overflow: "auto" }}
+          >
             <Messenger onClose={handleClose} />
           </Typography>
         </Popover>
@@ -193,8 +207,14 @@ export const Navbar = () => {
             vertical: "bottom",
             horizontal: "left",
           }}
+          c
         >
-          <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+          <Typography
+            sx={{ p: 2 }}
+            style={{ maxHeight: 500, overflow: "auto" }}
+          >
+            <Notification />
+          </Typography>
         </Popover>
         <div
           id="account"
@@ -217,9 +237,27 @@ export const Navbar = () => {
             horizontal: "left",
           }}
         >
-          <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+          <Typography sx={{ p: 2 }}>
+            <Account />
+          </Typography>
         </Popover>
       </div>
+      <Box
+        className={style.Box}
+        sx={{
+          display: `${chatwindow ? "flex" : "none"}`,
+          flexWrap: "wrap",
+          "& > :not(style)": {
+            m: 1,
+            width: 350,
+            height: 400,
+          },
+        }}
+      >
+        <Paper elevation={3} style={{ maxHeight: 400, overflow: "auto" }}>
+          <ChatBox />
+        </Paper>
+      </Box>
     </div>
   );
 };

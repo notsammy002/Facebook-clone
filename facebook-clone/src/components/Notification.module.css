@@ -1,8 +1,8 @@
-.Messenger {
+.notification {
   padding: 10px;
   width: 25vw;
 }
-.Messenger h4 {
+.notification h4 {
   font-size: 1.5rem;
   margin: 10px;
   color: black;

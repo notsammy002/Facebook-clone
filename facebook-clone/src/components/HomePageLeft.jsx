@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./HomePageLeft.module.css";
 import { HomeLeftRow } from "./HomeLeftRow";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
@@ -15,15 +15,21 @@ import StarIcon from "@material-ui/icons/Star";
 import CalendarTodayIcon from "@material-ui/icons//CalendarToday";
 import EmojiFlagsIcon from "@material-ui/icons//EmojiFlags";
 import { Link, Route, Routes } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { HomeFooter } from "./HomeFooter";
 
 export const HomePageLeft = () => {
   let [see, setSee] = React.useState(true);
   const click = () => {
     setSee(!see);
   };
+  const { userdata } = useContext(AuthContext);
   return (
     <div className={styles.HomePageLeft}>
-      <HomeLeftRow title="Muskan Issrani" src="" />
+      <HomeLeftRow
+        title={userdata.firstname + " " + userdata.lastname}
+        src=""
+      />
       <HomeLeftRow title="Friends" Icon={PeopleAltOutlinedIcon} />
       <HomeLeftRow title="Marketplace" Icon={StorefrontOutlinedIcon} />
       <HomeLeftRow title="Ads" Icon={BarChartIcon} />
@@ -53,41 +59,7 @@ export const HomePageLeft = () => {
         Icon={see ? ArrowDropDownIcon : ArrowDropUpIcon}
       />
       <div className={styles.hrLine}></div>
-      <div className={styles.bottom}>
-        <Link className={styles.Link} to="/privacy">
-          Privacy
-        </Link>
-        <span>&nbsp;.&nbsp;</span>
-        <Link className={styles.Link} to="/terms">
-          Terms
-        </Link>
-        <span>&nbsp;.&nbsp;</span>
-        <Link className={styles.Link} to="/Advertising">
-          Advertising
-        </Link>
-        <span>&nbsp;.&nbsp;</span>
-        <Link className={styles.Link} to="/Adchoices">
-          Ad choices
-        </Link>
-        <span>&nbsp;.&nbsp;</span>
-        <Link className={styles.Link} to="/cookies">
-          Cookies
-        </Link>
-        <span>&nbsp;.&nbsp;</span>
-        <Link className={styles.Link} to="/more">
-          More
-        </Link>
-        <span>&nbsp;.&nbsp;</span>
-        <span>Meta © 2022</span>
-      </div>
-      <Routes>
-        <Route path="/privacy" />
-        <Route path="/terms" />
-        <Route path="/Advertising" />
-        <Route path="/Adchoices" />
-        <Route path="/cookies" />
-        <Route path="/more" />
-      </Routes>
+      <HomeFooter />
     </div>
   );
 };

@@ -1,0 +1,25 @@
+.footerdiv{
+    background-color: white;
+    text-align: left;
+    width: 61.25rem;
+    margin: 1rem auto;
+}
+
+.footerdiv a , p{
+    font-size: .8rem;
+    margin: 0rem .4rem;
+    color: rgba(0, 0, 0, 0.452);
+}
+
+.footerdiv hr{
+    margin: .4rem 0rem;
+}
+
+.footerdiv p{
+    margin: 1rem .4rem;
+}
+
+.adIcon{
+    margin: .2rem .1rem 0rem .2rem;
+    width: .7rem;
+}

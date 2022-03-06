@@ -1,5 +1,10 @@
 import React from "react";
+import { Feeds } from "./Feeds";
 
 export const HomePageMiddle = () => {
-  return <div>HomePageMiddle</div>;
+  return (
+    <div>
+      <Feeds />
+    </div>
+  );
 };

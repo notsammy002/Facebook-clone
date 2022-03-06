@@ -5,6 +5,7 @@
   padding: 15px;
   overflow-y: scroll;
   width: 20%;
+  height: 100vh;
 }
 .HomeLeftRow {
   display: flex;
@@ -41,4 +42,9 @@
 }
 .bottom .Link:hover {
   text-decoration: underline;
+}
+@media screen and (max-width: 1050px) {
+  .HomePageLeft {
+    display: none;
+  }
 }
