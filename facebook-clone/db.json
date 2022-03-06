@@ -1,0 +1,66 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "chat": [
+    {
+      "id": 1,
+      "person_1_id": "p1",
+      "person_2_id": "p2",
+      "person_1_name": "Muskan",
+      "person_2_name": "Deepak",
+      "chatbox": [
+        {
+          "id": "c1",
+          "sender": "p1",
+          "message": "Hi Deepak"
+        },
+        {
+          "id": "c2",
+          "sender": "p2",
+          "message": "Hi Muskan"
+        },
+        {
+          "id": "9d98ac1c-8a3c-4f27-a332-47334fbe4885",
+          "sender": "p1",
+          "message": "test"
+        },
+        {
+          "id": "05f4fffe-183c-4afd-9a72-58b16b0e82b8",
+          "sender": "p1",
+          "message": "dfg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "person_1_id": "p1",
+      "person_2_id": "p3",
+      "person_1_name": "Muskan",
+      "person_2_name": "Sameul",
+      "chatbox": [
+        {
+          "id": "c1",
+          "sender": "p1",
+          "message": "hii Sameul"
+        },
+        {
+          "id": "c2",
+          "sender": "p3",
+          "message": "hii Muskan"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,11 @@
 .HomePageLeft {
   display: flex;
+  position: relative;
   flex-direction: column;
+  padding: 15px;
+  overflow-y: scroll;
+  width: 20%;
+  height: 100vh;
 }
 .HomeLeftRow {
   display: flex;
@@ -16,7 +21,30 @@
   margin: 0px 0px 0px 20px;
   font-weight: 600;
 }
-.HomeLeftRow > .MuiSvgIcon-root {
-  font-size: xx-large;
-  color: #2e81f4;
+.hrLine {
+  margin: 8px;
+  border-bottom: 1px solid #ced0d4;
+}
+.bottom {
+  margin-top: 8vh;
+  padding: 16px;
+}
+.bottom span {
+  color: #65676b;
+  font-weight: 400;
+  font-size: 12px;
+}
+.bottom .Link {
+  color: #65676b;
+  font-weight: 400;
+  font-size: 12px;
+  text-decoration: none;
+}
+.bottom .Link:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 1050px) {
+  .HomePageLeft {
+    display: none;
+  }
 }
