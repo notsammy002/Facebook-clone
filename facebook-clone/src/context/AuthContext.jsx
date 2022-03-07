@@ -8,7 +8,7 @@ export const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     let json = localStorage.getItem("facebook-clone");
     json = JSON.parse(json);
-    return json.loginStatus === "true" ? true : false;
+    return json && json.loginStatus === "true" ? true : false;
   });
   const [userdata, setUserdata] = useState({});
   const [users, setUsers] = useState([]);
@@ -18,6 +18,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     let json = localStorage.getItem("facebook-clone");
     json = JSON.parse(json);
+
     json && json.loginStatus === "true"
       ? setIsLoggedIn(true)
       : setIsLoggedIn(false);

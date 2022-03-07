@@ -34,7 +34,7 @@ const CustomWidthTooltip = styled(({ className, ...props }) => (
   },
 });
 
-export const Watch = () => {
+const MediaPost = () => {
   const { user, setUser } = useContext(Context);
   const [expanded, setExpanded] = React.useState(false);
 
@@ -192,3 +192,5 @@ export const Watch = () => {
     </div>
   );
 };
+
+export default MediaPost;
