@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import styles from "./Navbar.module.css";
 import style from "./Home.module.css";
 import SearchIcon from "@material-ui/icons/Search";
@@ -22,16 +22,20 @@ import Paper from "@material-ui/core/Paper";
 import { ChatBox } from "../components/ChatBox";
 import { ChatContext } from "../context/ChatContext";
 import { Account } from "./Account";
+import { SearchList } from "./SearchList";
+import List from "@material-ui/core/List";
 
 export const Navbar = () => {
   let location = useLocation();
-  const { userdata } = useContext(AuthContext);
+  const { userdata, users } = useContext(AuthContext);
   const { chatwindow } = useContext(ChatContext);
+  const [searchText, setSearch] = React.useState("");
   const [anchorEl, setAnchorEl] = React.useState({
     menu: false,
     messanger: false,
     notifications: false,
     account: false,
+    search: false,
   });
 
   const handleClick = (event) => {
@@ -42,21 +46,27 @@ export const Navbar = () => {
   };
 
   const handleClose = () => {
-    setAnchorEl({
+    let ach = {
       menu: false,
       messanger: false,
       notifications: false,
       account: false,
+      search: false,
+    };
+    setAnchorEl(() => {
+      return { ...ach };
     });
   };
   const openMenu = Boolean(anchorEl.menu);
   const openMessanger = Boolean(anchorEl.messanger);
   const openNotification = Boolean(anchorEl.notification);
   const openAccount = Boolean(anchorEl.account);
+  const openSearch = Boolean(anchorEl.search);
   const idMenu = openMenu ? "simple-popover" : undefined;
   const idMessanger = openMessanger ? "simple-popover" : undefined;
   const idNotification = openNotification ? "simple-popover" : undefined;
   const idAccount = openAccount ? "simple-popover" : undefined;
+  const idSearch = openSearch ? "simple-popover" : undefined;
   return (
     <div className={styles.navbar}>
       <div className={styles.navLeft}>
@@ -66,10 +76,40 @@ export const Navbar = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%%29.svg.png"
           />
         </Link>
-        <div className={styles.navLeftInput}>
+        <div id="search" onClick={handleClick} className={styles.navLeftInput}>
           <SearchIcon />
-          <input type="text" placeholder="Search Facebook" />
+          <input
+            type="text"
+            placeholder="Search Facebook"
+            value={searchText}
+            onChange={(e) => {
+              setSearch(e.currentTarget.value);
+            }}
+          />
         </div>
+        <Popover
+          id={idSearch}
+          open={openSearch}
+          anchorEl={anchorEl.search}
+          disableAutoFocus={true}
+          disableEnforceFocus={true}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+        >
+          <Typography sx={{ p: 2 }}>
+            <List>
+              {users.map((item) => {
+                const item1 = item.firstname + " " + item.lastname;
+                if (searchText === "" || item1.includes(searchText)) {
+                  return <SearchList item={item} />;
+                }
+              })}
+            </List>
+          </Typography>
+        </Popover>
       </div>
       <div className={styles.navCenter}>
         <Link

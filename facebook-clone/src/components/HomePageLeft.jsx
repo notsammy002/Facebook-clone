@@ -14,7 +14,7 @@ import MessageIcon from "@material-ui/icons/Message";
 import StarIcon from "@material-ui/icons/Star";
 import CalendarTodayIcon from "@material-ui/icons//CalendarToday";
 import EmojiFlagsIcon from "@material-ui/icons//EmojiFlags";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { HomeFooter } from "./HomeFooter";
 

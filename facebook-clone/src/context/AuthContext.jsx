@@ -11,6 +11,7 @@ export const AuthContextProvider = ({ children }) => {
     return json.loginStatus === "true" ? true : false;
   });
   const [userdata, setUserdata] = useState({});
+  const [users, setUsers] = useState([]);
   const location = useLocation();
   console.log(location);
 
@@ -23,6 +24,12 @@ export const AuthContextProvider = ({ children }) => {
     let json1 = localStorage.getItem("usedata");
     json1 = JSON.parse(json1);
     setUserdata(json1);
+    fetch("https://facebook-json-server.herokuapp.com/users")
+      .then((item) => item.json())
+      .then((item) => {
+        console.log(item);
+        setUsers(item);
+      });
   }, []);
   const setLogin = (userdata) => {
     setIsLoggedIn(true);
@@ -96,6 +103,7 @@ export const AuthContextProvider = ({ children }) => {
         signup,
         logout,
         forgotpassword,
+        users,
       }}
     >
       {children}
