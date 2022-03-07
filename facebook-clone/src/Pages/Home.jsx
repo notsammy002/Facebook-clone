@@ -4,7 +4,6 @@ import { HomePageMiddle } from "../components/HomePageMiddle";
 import { HomePageRight } from "../components/HomePageRight";
 import styles from "../components/Home.module.css";
 import { AuthContext } from "../context/AuthContext";
-import HomePost from "../components/HomePost";
 
 export const Home = () => {
   const { userdata } = useContext(AuthContext);
@@ -14,7 +13,6 @@ export const Home = () => {
       <HomePageLeft />
       <HomePageMiddle />
       <HomePageRight />
-      <HomePost />
     </div>
   );
 };

@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import { AuthContextProvider } from "./context/AuthContext";
 import { ChatContextProvider } from "./context/ChatContext";
 import { BrowserRouter } from "react-router-dom";
+import { ContextProvider } from "./components/PostContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <ChatContextProvider>
       <BrowserRouter>
         <AuthContextProvider>
-          <App />
+          <ContextProvider>
+            <App />
+          </ContextProvider>
         </AuthContextProvider>
       </BrowserRouter>
     </ChatContextProvider>

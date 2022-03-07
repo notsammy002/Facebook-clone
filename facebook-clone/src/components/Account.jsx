@@ -18,7 +18,7 @@ export const Account = () => {
       <List className={styles.AList}>
         <AccountList
           src=""
-          primary={userdata.firstname + " " + userdata.lastname}
+          primary={userdata ? userdata.firstname + " " + userdata.lastname : ""}
           secondary="See your profile"
         />
         <div className={styles.hrLine}></div>

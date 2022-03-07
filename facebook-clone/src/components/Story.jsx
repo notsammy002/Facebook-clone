@@ -7,7 +7,6 @@ export const Story = ({ img, profSrc, title }) => {
   useEffect(() => {
     console.log(viewed);
   }, [viewed]);
-  
   return (
     <div
       onClick={() => {
