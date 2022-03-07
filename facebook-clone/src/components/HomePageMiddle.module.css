@@ -1,3 +1,9 @@
+.HomePageMiddle {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 25%;
+}
 .feeds {
   display: flex;
   margin: 20px;

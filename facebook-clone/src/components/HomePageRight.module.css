@@ -1,5 +1,12 @@
 .HomePageRight {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  padding: 15px;
+  overflow-y: scroll;
+  right: 0px;
   width: 20%;
+  height: 100vh;
 }
 .SponsorHeader {
   font-weight: 600;

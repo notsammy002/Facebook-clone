@@ -128,7 +128,7 @@ const HomePost = () => {
 
   const handleDelete = (itemToDelete) => {
     const userList = user.filter((e) => e.id !== itemToDelete.id);
-    setUser(userList);
+    setUser([...userList]);
   };
 
   return (

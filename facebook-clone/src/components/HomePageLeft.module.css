@@ -1,6 +1,6 @@
 .HomePageLeft {
   display: flex;
-  position: relative;
+  position: fixed;
   flex-direction: column;
   padding: 15px;
   overflow-y: scroll;
