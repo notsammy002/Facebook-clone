@@ -1,5 +1,5 @@
 
-# Facebook (clone)
+# Facebook (clone) 🌐
 
 Facebook is a leading social media platform across the globe. It has an ability to connect and share with the people you care about.
 
@@ -11,14 +11,14 @@ so far in the masai school, we were able to clone the front end with high precis
 
 https://facebook-clone-three-orpin.vercel.app/login
 
-## Technology Used
+## Technology Used 💻
 
  - React 
  - Context api
  - CSS
  - heroku server
 
-## Libraries Used
+## Libraries Used 🌟
 
 - react icon
 - mui library
@@ -27,7 +27,7 @@ https://facebook-clone-three-orpin.vercel.app/login
 
 You can install the libraries using the "npm install" command
 
-## How to run the project
+## How to run the project 📑
 
 In this project we were able to achieve a near to perfect clone of the original website. As we do not want to overwhelm you, we haven't shared all the pages here.Please fork the repository and then use it on your own. If you want to collaborate with us on this project then please feel free to reach out to us.
 
@@ -39,10 +39,9 @@ You can also take the glimpse of our Project,just follow the below steps:
 
 3.run the command npm run start in terminal to start the app at port 3000.
 
-## ScreenShots
+## ScreenShots 📷
 
 ![Screenshot 2022-03-17 145654](https://user-images.githubusercontent.com/97031223/158779311-72049c4a-7d0f-403a-8a06-304d0861f18e.png)
-
 
 ![Screenshot 2022-03-17 145709](https://user-images.githubusercontent.com/97031223/158779230-912ef1cd-0461-4997-914e-97cec1009726.png)
 
@@ -52,3 +51,27 @@ You can also take the glimpse of our Project,just follow the below steps:
 
 ![Screenshot 2022-03-17 145552](https://user-images.githubusercontent.com/97031223/158779756-e584d138-dd0e-436e-af48-d91a97a7fcf9.png)
 
+## Features ✨
+
+1. User can post anything like: text,feeling,activities, photos, videos etc...
+2. User can edit or delete the post.
+3. User can like, comment or share the post and it is totally live.
+4. User can message to his friends.
+
+<br>
+
+## Demo 🎥
+
+[facebook_clone](https://masai-course.s3.ap-south-1.amazonaws.com/users/742/submissions/107510/253457/725d20b569eaa514278acfd124524994/demo.mp4)
+
+<br>
+
+## Team Members and Contributors 😇
+
+👤 **Muskan Issrani**
+
+- Github: [Muskan-Issrani](https://github.com/MuskanIss)
+
+👤 **Deepak Sharma**
+
+- Github: [Deepak-Sharma](https://github.com/deepak-sharma-21)
